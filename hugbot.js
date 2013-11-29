@@ -1,7 +1,7 @@
 var ntwitter = require('ntwitter');
 var auth = require('./auth');
 
-var bot = new ntwitter(auth);
+var bot = new ntwitter(auth.getAuth());
 
 // Get a random number from 1 to 10
 function getRandNum() {

@@ -27,8 +27,7 @@ function getRandPug() {
   'http://bit.ly/doqglS',
   'http://bit.ly/195gk56'
   ];
-  var pug = getRandIndex(pugs);
-  return pug;
+  return getRandIndex(pugs);
 }
 
 // Log errors
@@ -49,7 +48,7 @@ function startStreaming() {
     console.log('Listening for Tweets...');
 
     stream.on('data', function(tweet) {
-
+      console.log(tweet.text)
       // Check Tweet for specific matching phrases as Twitter's Streaming API doesn't allow for this
       if (tweet.text.match(/need\sa\shug|want\sa\shug|need\shugs|want\shugs/)) {
 

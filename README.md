@@ -4,6 +4,17 @@ A Node.js Twitter bot that sends people hugs and occasionally pugs.
 
 Uses the Twitter Streaming API with [ntwitter](https://github.com/AvianFlu/ntwitter).
 
+## Installing hugbot dependencies
+
+Run the following command to install the latest dependencies: 
+
+``` 
+$ npm install
+
+```
+
+This will install the lastest version of `ntwitter` by [@avianflu](https://github.com/AvianFlu)
+
 
 ## Setting up twitter credentials
 

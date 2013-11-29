@@ -1,0 +1,11 @@
+{
+  "name": "hugbot",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node hugbot.js"
+  },
+  "dependencies": {
+    "ntwitter": "*"
+  }
+}

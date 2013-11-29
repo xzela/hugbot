@@ -10,7 +10,6 @@ Run the following command to install the latest dependencies:
 
 ``` 
 $ npm install
-
 ```
 
 This will install the lastest version of `ntwitter` by [@avianflu](https://github.com/AvianFlu)

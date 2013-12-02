@@ -46,12 +46,13 @@ function startStreaming() {
 	bot.stream('statuses/filter', { track: 'need a hug, want a hug, need hugs, want hugs' }, function(stream) {
 		console.log('Listening for Tweets...');
 		stream.on('data', function(tweet) {
+			var number = getRandNum(),
+				pugPic = getRandPug(),
+				params = {};
+
 			console.log(tweet.text)
 			// Check Tweet for specific matching phrases as Twitter's Streaming API doesn't allow for this
 			if (tweet.text.match(/need\sa\shug|want\sa\shug|need\shugs|want\shugs/)) {
-				var number = getRandNum(),
-					pugPic = getRandPug(),
-					params = {};
 				// 90% chance of hug
 				if (number <= 9) {
 					params = {
@@ -72,19 +73,24 @@ function startStreaming() {
 
 // Post 10 random Tweets every 15 minutes
 setInterval(function() {
+	var index, sampleTweet,
+		limit = 10;
 	console.log(queue);
+	if (queue.length < limit) {
+		limit = queue.length;
+	}
 	// Loop through queue to randomly select 10 Tweets
-	for (var i = 0; i < 10; i++) {
-		var index = Math.floor(Math.random() * queue.length);
-		var sampleTweet = queue.splice(index, 1);
+	for (var i = 0; i < limit; i++) {
+		index = Math.floor(Math.random() * queue.length);
+		sampleTweet = queue.splice(index, 1);
 		console.log(i+1);
 		console.log(sampleTweet[0]);
 
-		bot.updateStatus(sampleTweet[0], sampleTweet[0], callback);
+		//bot.updateStatus(sampleTweet[0], sampleTweet[0], callback);
 	}
 	// Reset the queue
 	queue = [];
-}, 1000*60*15);
+}, 1000*60);
 
 // Start streaming Tweets
 startStreaming();

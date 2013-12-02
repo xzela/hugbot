@@ -20,14 +20,16 @@ This will install the lastest version of `ntwitter` by [@avianflu](https://githu
 Before you can start making calls to Twitter you'll need to make include your twitter API credentials. Make a file called `auth.js` in the root directory and add the following code:
 
 ```
-exports.getAuth = function() {
+function getAuth() {
 	return {
-		consumer_key: '', // fill with your info
+		consumer_key: '',
 		consumer_secret: '',
 		access_token_key: '',
 		access_token_secret: ''
 	};
 }
+
+module.exports.getAuth = getAuth;
 ```
 
 ## Using the Auth in the App
